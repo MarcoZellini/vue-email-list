@@ -12,12 +12,13 @@ const {createApp} = Vue;
 createApp({
     data() {
         return{
-            emailList: []
+            emailList: [],
+            isDataReady: false
         }
     },
-    mounted() {
+    async mounted() {
         for (let i = 0; i < 10; i++) {
-            axios
+            await axios
             .get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then(response => {
                 console.log(response.data.response);
@@ -27,5 +28,6 @@ createApp({
                 console.log(error);
             });
         }
+        this.isDataReady = true;
     }
 }).mount('#app');

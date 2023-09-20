@@ -15,10 +15,11 @@
 
         <div id="app">
 
-            <ul class="email_list">
+            <ul v-if="isDataReady" class="email_list">
                 <li class="email_list_item" v-for="email in emailList">{{email}}</li>
                 <!-- /.email_list_item -->
             </ul>
+            <div v-else>Loading...</div>
             <!-- /.email_list -->
 
         </div>
